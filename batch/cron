@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dir=`dirname $0`
+php $dir/import_browse_node.php -r
