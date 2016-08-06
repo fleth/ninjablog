@@ -17,7 +17,7 @@ class NinjaBlogEntryPublisher {
     public function __construct(ConfigAccessor $config_accessor){
         $this->config_accessor = $config_accessor;
         $this->amazon_api_client = new AmazonAssociateAPIClient($config_accessor);
-        $this->ninja_api_client = new NinjaAPIClient();
+        $this->ninja_api_client = new NinjaAPIClient($config_accessor);
     }
 
     /**
