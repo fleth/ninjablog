@@ -22,7 +22,7 @@ use HttpClient;
         $path = "/itemset/names";
         $url = $this->getBaseUrl() . $path;
 
-        $results = json_decode($this->httpGet($url), true);
+        $results = json_decode($this->httpGet($url)->getBody()->__toString(), true);
 
         $names = [];
         foreach($results as $result){
@@ -40,7 +40,7 @@ use HttpClient;
         $path = "/items/ranking/recommend";
         $url = $this->getBaseUrl() . $path . "/$item_set_id/$ranking_type";
 
-        $results = json_decode($this->httpGet($url), true);
+        $results = json_decode($this->httpGet($url)->getBody()->__toString(), true);
 
         $items = [];
         foreach($results as $result){
