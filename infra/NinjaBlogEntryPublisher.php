@@ -27,12 +27,14 @@ class NinjaBlogEntryPublisher {
     public function publishNews($ranking_name){
         $items = $this->amazon_api_client->getRecommend($ranking_name->getAsin(), "news");
         $title = $ranking_name->getName();
-        $description = [];
+        $descriptions = [];
         foreach($items as $item){
-            $color = (count($description) % 2 == 0) ? "#FAFAFA" : "#FFFFFF";
-            $description[] = $this->createDescription($item, $color);
+            $color = (count($descriptions) % 2 == 0) ? "#FAFAFA" : "#FFFFFF";
+            $descriptions[] = $this->createDescription($item, $color);
         }
-        $entry = $this->createEntry($title, implode("", $description));
+        $description = '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>'
+            .implode("", $descriptions).implode("", $descriptions);
+        $entry = $this->createEntry($title, $description);
         $id = $this->config_accessor->getRequired("ninja_blog_id")->value();
         return $this->ninja_api_client->addEntry($id, $entry);
     }
