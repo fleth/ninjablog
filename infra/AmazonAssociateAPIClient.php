@@ -25,7 +25,7 @@ use HttpClient;
         $results = json_decode($this->httpGet($url)->getBody()->__toString(), true);
 
         $names = [];
-        foreach($results as $result){
+        foreach($results["data"] as $result){
             $name = new ArrayAccessor($result);
             $names[] = new RankingName(
                 $name->get("id")->value(),
@@ -43,7 +43,7 @@ use HttpClient;
         $results = json_decode($this->httpGet($url)->getBody()->__toString(), true);
 
         $items = [];
-        foreach($results as $result){
+        foreach($results["data"] as $result){
             $items[] = new Item($result);
         }
 
