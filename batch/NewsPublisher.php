@@ -22,8 +22,11 @@ class NewsPublisher {
         $names = $this->amazon_api_client->getRankingNames();
 
         foreach($names as $name){
-            $this->ninja_blog_publisher->publishNews($name);
-            sleep($this->interval_sec);
+            try{
+                $this->ninja_blog_publisher->publishNews($name);
+                sleep($this->interval_sec);
+            }catch(\Exception $e){
+            }
         }
     }
 }
