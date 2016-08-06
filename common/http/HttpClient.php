@@ -27,9 +27,12 @@ trait HttpClient {
 	 * @param array $params
 	 * @return string
 	 */
-	protected function httpPost($url, $params=[]){
+	protected function httpPost($url, $params=[], $headers=[]){
 		$client = new \GuzzleHttp\Client();
-		$response = $client->request("POST", $url, ["form_params" => $params]);
+		$response = $client->request("POST", $url, [
+			"headers" => $headers,
+			"form_params" => $params
+		]);
 
 		return $response;
 	}
