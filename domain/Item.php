@@ -47,7 +47,7 @@ class Item {
             $date = $this->getReleaseDate();
         }
         return '
-<div class="row col-xs-6 item-row" style="background-color: '.$color.';">
+<div class="row col-sm-6 item-row" style="background-color: '.$color.';">
 <div class="col-xs-3 item-image">
 <a href="'.$this->getDetailPageURL().'" title="'.$this->getTitle().'">
 <img class="img-responsive center-block" style="max-height: 100px;" src="'.$this->getMediumImage()->get("url")->value().'">
