@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__.'/../infra/autoloader.php');
 require_once(__DIR__."/../config.php");
 
 use common\util\ConfigAccessor;

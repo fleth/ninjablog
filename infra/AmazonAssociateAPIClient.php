@@ -1,6 +1,7 @@
 <?php
 
 namespace infra;
+require_once(__DIR__.'/autoloader.php');
 
 use common\http\HttpClient;
 use common\util\ArrayAccessor;
