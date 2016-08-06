@@ -50,7 +50,7 @@ class Item {
 <div class="row col-xs-3 item-row" style="background-color: '.$color.';">
 <div class="col-xs-3 item-image">
 <a href="'.$this->getDetailPageURL().'" title="'.$this->getTitle().'">
-        <img class="img-responsive center-block" style="max-height: 100px;" src="'.$this->getMediumImage()->get("url")->value().'">
+<img class="img-responsive center-block" style="max-height: 100px;" src="'.$this->getMediumImage()->get("url")->value().'">
 </a>
 </div>
 <div class="col-xs-9 item-desc">

@@ -48,7 +48,7 @@ class NinjaBlogEntryPublisher {
 
     private function createEntry($title, $description){
         return new NinjaBlogEntry(
-            1, 0, 2,
+            2, 0, 2,
             $description, 0, $title
         );
     }
