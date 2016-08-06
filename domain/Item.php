@@ -55,7 +55,7 @@ class Item {
 </div>
 <div class="col-xs-9 item-desc">
 <a href="'.$this->getDetailPageURL().'" title="'.$this->getTitle().'">
-<p class="lead" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">牧場物語 3つの里の大切な友だち 公式パーフェクトガイド</p>
+<p class="lead" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">'.$this->getTitle().'</p>
 </a>
 <br>
 <span>発売日: '.$date.'</span>
