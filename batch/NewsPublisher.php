@@ -11,6 +11,8 @@ class NewsPublisher {
 
     private $amazon_api_client;
 
+    private $interval_sec = 5;
+
     public function __construct(ConfigAccessor $config_accessor){
         $this->amazon_api_client = new AmazonAssociateAPIClient($config_accessor);
         $this->ninja_blog_publisher = new NinjaBlogEntryPublisher($config_accessor);
@@ -21,6 +23,7 @@ class NewsPublisher {
 
         foreach($names as $name){
             $this->ninja_blog_publisher->publishNews($name);
+            sleep($this->interval_sec);
         }
     }
 }

@@ -22,7 +22,10 @@ use HttpClient;
 
         $token = $this->config_accessor->getRequired("ninja_api_access_token")->value();
 
-        $headers = ["Authorization", "Bearer " . $token];
+        $headers = [
+            "Authorization" => "Bearer " . $token,
+            "Content-type" => "application/x-www-form-urlencoded;charset=UTF-8"
+        ];
 
         $url = $this->getBaseUrl() . "/blog/v1/entry/add";
 

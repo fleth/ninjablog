@@ -27,7 +27,7 @@ class NinjaBlogEntryPublisher {
     public function publishNews($ranking_name){
         $items = $this->amazon_api_client->getRecommend($ranking_name->getAsin(), "news");
         $title = $ranking_name->getName();
-        $description = array_map([$this, "createDescription"], $items);
+        $description = implode("\n", array_map([$this, "createDescription"], $items));
         $entry = $this->createEntry($title, $description);
         $id = $this->config_accessor->getRequired("ninja_blog_id")->value();
         return $this->ninja_api_client->addEntry($id, $entry);
