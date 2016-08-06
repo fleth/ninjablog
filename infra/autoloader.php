@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__."/../domain/autoloader.php");
 require_once(__DIR__."/../common/autoloader.php");
 
 spl_autoload_register(
