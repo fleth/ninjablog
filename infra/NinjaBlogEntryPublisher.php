@@ -50,7 +50,7 @@ class NinjaBlogEntryPublisher {
 
     private function createEntry($title, $description){
         return new NinjaBlogEntry(
-            2, 0, 2,
+            2, 0, $this->config_accessor->getRequired("ninja_blog_entry_open_flg")->value(),
             $description, 0, $title
         );
     }
