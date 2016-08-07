@@ -4,20 +4,20 @@ namespace domain;
 
 
 class RankingName {
-    private $asin;
+    private $id;
     private $name;
 
-    public function __construct($asin, $name){
-        $this->asin = $asin;
+    public function __construct($id, $name){
+        $this->id = $id;
         $this->name = $name;
     }
 
     /**
      * @return mixed
      */
-    public function getAsin()
+    public function getId()
     {
-        return $this->asin;
+        return $this->id;
     }
 
     /**
