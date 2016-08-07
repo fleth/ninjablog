@@ -26,7 +26,7 @@ class NinjaBlogEntryPublisher {
      */
     public function publishNews($ranking_name){
         $items = $this->amazon_api_client->getRecommend($ranking_name->getAsin(), "news");
-        $title = $ranking_name->getName();
+        $title = $this->createNewsTitle($ranking_name);
         $descriptions = [];
         foreach($items as $item){
             $color = (count($descriptions) % 2 == 0) ? "#FAFAFA" : "#FFFFFF";
@@ -37,6 +37,14 @@ class NinjaBlogEntryPublisher {
         $entry = $this->createEntry($title, $description);
         $id = $this->config_accessor->getRequired("ninja_blog_id")->value();
         return $this->ninja_api_client->addEntry($id, $entry);
+    }
+
+    /**
+     * @param Item $item
+     * @return string
+     */
+    private function createNewsTitle($ranking_name){
+        return "今週発売の【".$ranking_name->getName()."】";
     }
 
     /**
