@@ -42,8 +42,7 @@ class NinjaBlogEntryPublisher {
             $this->redis_set_accessor->add($redis_key, $item->getAsin());
         }
         if(empty($descriptions)) return "description is empty";
-        $description = '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>'
-            .implode("", $descriptions)."<br>";
+        $description = '<div class="col-xs-12">'.implode("", $descriptions)."</div>";
         $entry = $this->createEntry($title, $description);
         $id = $this->config_accessor->getRequired("ninja_blog_id")->value();
         return $this->ninja_api_client->addEntry($id, $entry);
