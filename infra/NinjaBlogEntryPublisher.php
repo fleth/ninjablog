@@ -76,8 +76,12 @@ class NinjaBlogEntryPublisher {
 
     private function createEntry($title, $description){
         return new NinjaBlogEntry(
-            2, 0, $this->config_accessor->getRequired("ninja_blog_entry_open_flg")->value(),
-            $description, 0, $title
+            2,
+            $this->config_accessor->getRequired("ninja_blog_entry_category_id")->value(),
+            $this->config_accessor->getRequired("ninja_blog_entry_open_flg")->value(),
+            $description,
+            $this->config_accessor->getRequired("ninja_blog_comment_receipt_flg")->value(),
+            $title
         );
     }
 }
