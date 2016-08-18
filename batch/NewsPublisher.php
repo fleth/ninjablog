@@ -26,6 +26,7 @@ class NewsPublisher {
                 $this->ninja_blog_publisher->publishNews($name);
                 sleep($this->interval_sec);
             }catch(\Exception $e){
+                echo $e->__toString();
             }
         }
     }
