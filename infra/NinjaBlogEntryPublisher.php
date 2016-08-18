@@ -61,8 +61,9 @@ class NinjaBlogEntryPublisher {
      * @param RankingName $ranking_name
      * @return string
      */
-    private function createNewsTitle($ranking_name){
-        return "今週発売の【".$ranking_name->getName()."】";
+    private function createNewsTitle($ranking_name, $time){
+        $period = "(".date("m/d", strtotime("-1 week", $time))." ～".date("m/d", $time).")";
+        return "今週".$period."発売の【".$ranking_name->getName()."】";
     }
 
     /**
