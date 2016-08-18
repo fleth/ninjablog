@@ -32,7 +32,7 @@ class NinjaBlogEntryPublisher {
         $redis_key = $this->createNewsRedisKey($ranking_name);
         $items = $this->amazon_api_client->getRecommend($ranking_name->getId(), "news");
         $ids = $this->redis_set_accessor->member($redis_key);
-        $title = $this->createNewsTitle($ranking_name);
+        $title = $this->createNewsTitle($ranking_name, time());
         $descriptions = [];
         /** @var Item $item */
         foreach($items as $item){
