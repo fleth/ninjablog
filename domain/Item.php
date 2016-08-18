@@ -54,9 +54,9 @@ class Item {
 </a>
 </div>
 <div class="col-xs-9 item-desc" style="overflow: hidden;">
-<a href="'.$this->getDetailPageURL().'" title="'.$this->getTitle().'">
-<p class="lead" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">'.$this->getTitle().'</p>
-</a>
+<p class="lead" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+<a href="'.$this->getDetailPageURL().'" title="'.$this->getTitle().'">'.$this->getTitle().'</a>
+</p>
 <br>
 <span>発売日: '.$date.'</span>
 </div>
